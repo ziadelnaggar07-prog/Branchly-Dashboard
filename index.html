@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Branch Sales | Business Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">B</div><div><b>BRANCHLY</b><small>BUSINESS INTELLIGENCE</small></div></div>
+    <div class="nav-label">WORKSPACE</div>
+    <a class="nav-item active" href="#"><span>▦</span> Overview</a>
+    <div class="sidebar-note"><div class="live-dot"></div> Demo data connected</div>
+    <div class="sidebar-bottom">DSAI 203<br><span>Data Integration & Visualization</span></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div><div class="eyebrow">ANALYTICS / OVERVIEW</div><h1>Sales Dashboard</h1><p>Monitor performance across your business branches.</p></div>
+      <div class="top-right"><span class="status"><i></i> SYSTEM ONLINE</span><div class="avatar">BM</div></div>
+    </header>
+
+    <section class="filters panel">
+      <div class="filter-heading"><b>Filters</b><span>Customize the displayed data</span></div>
+      <label>BRANCH<select id="branchFilter"><option value="all">All branches</option></select></label>
+      <label>FROM<input id="startDate" type="date" value="2026-01-01"></label>
+      <label>TO<input id="endDate" type="date" value="2026-10-27"></label>
+      <button id="applyFilters">Apply filters</button>
+    </section>
+
+    <section class="kpi-grid">
+      <article class="kpi panel"><div class="kpi-top"><span>TOTAL REVENUE</span><span class="kpi-icon blue">↗</span></div><strong id="revenue">—</strong><small>Across selected period</small></article>
+      <article class="kpi panel"><div class="kpi-top"><span>NET PROFIT</span><span class="kpi-icon green">＋</span></div><strong id="profit">—</strong><small>Revenue minus cost</small></article>
+      <article class="kpi panel"><div class="kpi-top"><span>UNITS SOLD</span><span class="kpi-icon purple">▤</span></div><strong id="units">—</strong><small>Total quantity sold</small></article>
+      <article class="kpi panel"><div class="kpi-top"><span>TRANSACTIONS</span><span class="kpi-icon orange">⌁</span></div><strong id="orders">—</strong><small>Recorded sales orders</small></article>
+    </section>
+
+    <section class="charts-grid">
+      <article class="panel chart-panel wide"><div class="panel-heading"><div><h2>Revenue & Profit Trend</h2><p>Monthly performance over time</p></div><span class="chart-tag">MONTHLY</span></div><div id="trendChart" class="chart"></div></article>
+      <article class="panel chart-panel"><div class="panel-heading"><div><h2>Sales by Branch</h2><p>Compare branch revenue</p></div></div><div id="branchChart" class="chart"></div></article>
+      <article class="panel chart-panel"><div class="panel-heading"><div><h2>Sales by Category</h2><p>Revenue contribution</p></div></div><div id="categoryChart" class="chart"></div></article>
+      <article class="panel chart-panel wide"><div class="panel-heading"><div><h2>Top Products</h2><p>Best-performing products by revenue</p></div></div><div id="productsChart" class="chart"></div></article>
+    </section>
+    <footer>Branchly Analytics · Academic demo project · Sample data only</footer>
+  </main>
+  <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
